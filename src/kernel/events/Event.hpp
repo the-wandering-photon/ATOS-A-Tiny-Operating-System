@@ -11,15 +11,18 @@
 #include<iostream>
 
 class Event{
-    private:
-        int id;
-        std::string eventName;
+protected:
+    int id;
+    std::string eventName;
 
-    public:
-       Event(std::string input_eventName) {
+public:
+    
+    // constructor
+    Event(std::string input_eventName) {
         // id = EventManager->getId
         eventName = input_eventName;
-       }
+    };
+        
 };
 
 #endif /* Event_hpp */

@@ -13,5 +13,6 @@ int main(){
      *
      */
     boot_entry_point();
+    
     return 0;
 }

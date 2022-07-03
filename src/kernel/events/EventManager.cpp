@@ -6,8 +6,7 @@
 //
 
 #include "EventManager.hpp"
-#include<iostream>
 
 void EventManager::registerEvent(){
-    std::cout << "Debug - Event added\n";
+    printf("Info - Event added\n");
 }

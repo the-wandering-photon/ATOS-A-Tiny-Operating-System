@@ -8,14 +8,27 @@
 #ifndef EventManager_hpp
 #define EventManager_hpp
 
-class EventManager{
-    public:
-        void registerEvent();
-        void getEventByEid(int eid);
+#import <chrono>
+#import <ctime>
+#import <stdio.h>
+#include<iostream>
 
-    private:
-        void grantEid();
-        
+#include "../../utils/system_time.hpp"
+
+class EventManager{
+public:
+    EventManager(){
+        startTime = getSystemDateTimeNow();
+        printf("Info - Event manager stated at: %s\n", startTime.c_str());
+    };
+    
+    void registerEvent();
+    void getEventByEid(int eid);
+
+private:
+    void grantEid();
+    std::string startTime;
+    
 };
 
 #endif /* EventManager_hpp */
