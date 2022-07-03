@@ -11,7 +11,9 @@ It will run on c++, but I'd like it to be able to execute, or run deamons of oth
 
 ## Core OS features & Roadmap:
 
-- [ ] The Kernel 
+- [x] The Kernel 
+- [ ] Event system
+- [ ] Logger
 - [ ] RAM emulation 
 - [ ] Main memory emulation - (thought: how do I save the state of the machine and how is the data ordered?)
 - [ ] Internal communication corridors
