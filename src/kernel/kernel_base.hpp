@@ -9,7 +9,11 @@
 #define kernel_base_hpp
 
 #include <stdio.h>
+#include <string>
 
+#include "events/EventManager.hpp"
+#include "events/Event.hpp"
+#include "events/KernelEvent.hpp"
 
 int boot_entry_point(); // entry point into the program
 

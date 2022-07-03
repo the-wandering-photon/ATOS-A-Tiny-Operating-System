@@ -6,12 +6,6 @@
 //
 
 #include "kernel_base.hpp"
-#include<stdio.h>
-#include<string>
-
-#include "events/EventManager.hpp"
-#include "events/Event.hpp"
-#include "events/KernelEvent.hpp"
 
 /**
  * @brief The entrypoint to the software, called from the main file.
@@ -21,18 +15,41 @@
 
 int boot_entry_point(){
     // FUNCTION VARIABLE DEFINITIONS HERE:
+    // Instanciate the event manager, which should be the first object to run
+    EventManager eventManager;
+    
+    Event e;
+    e.setEventName("Event 1");
+    Event e1;
+    e1.setEventName("Event 2");
+    Event e2;
+    e2.setEventName("Event 3");
+    
+    Node* first = new Node();
+    first->event = e;
+    first->nextNode = NULL;
+    first->prevNode = NULL;
+    
+    // Add this node as the head of the list
+    eventManager.head = first;
+    
+    Node* second = new Node();
+    second->event = e1;
+    second->nextNode = NULL;
+    second->prevNode = first;
+    first->nextNode = second;
+    
+    Node* third = new Node();
+    third->event = e2;
+    third->nextNode = NULL;
+    third->prevNode = second;
+    second->nextNode = third;
+    
+    eventManager.printActiveEvents();
 
     // boolean to control whether the operating system is running.
     bool is_os_running = true;
-
-    // Event manager
-    EventManager* eventManager = new EventManager();
     
-    eventManager->registerEvent(); // for a test case
-
-    // PRE-OS LOOP ACTIONS - a place to load in any data required, or set up datastructures etc.
-    // consider classes for: RAM, main memory, internal communication etc.
-
 
     // OS RUNNING LOOP
 
@@ -40,9 +57,14 @@ int boot_entry_point(){
         // managment
         
     }
+    
+    // if the OS flag is set to not running then something bad has happened
+    // perform some emergency data saving and logging before shutdown
+    if(!is_os_running){
+        
+    }
 
-    // cleanup
-    delete eventManager;
+    // cleanup before shutdown
 
     // Goodbye message
     printf("Thank you for using ATOS! The system is now shut down - see you next time!\n");

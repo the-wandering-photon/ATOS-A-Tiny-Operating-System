@@ -6,3 +6,11 @@
 //
 
 #include "Event.hpp"
+
+void Event::setEventName(std::string input_eventName){
+    eventName = input_eventName;
+}
+
+std::string Event::getEventName(){
+    return eventName;
+}

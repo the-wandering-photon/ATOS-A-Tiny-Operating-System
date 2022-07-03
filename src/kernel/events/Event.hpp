@@ -10,19 +10,16 @@
 
 #include<iostream>
 
-class Event{
+class Event {
+    
 protected:
     int id;
     std::string eventName;
 
-public:
+public:    
+    void setEventName(std::string input_eventName);
+    std::string getEventName();
     
-    // constructor
-    Event(std::string input_eventName) {
-        // id = EventManager->getId
-        eventName = input_eventName;
-    };
-        
 };
 
 #endif /* Event_hpp */

@@ -17,7 +17,7 @@ private:
     int kernel_event_id;
     
 public:
-    KernelEvent(std::string input_eventName) : Event(input_eventName){
+    KernelEvent(std::string input_eventName) : Event(){
         // Some constructor stuff tbc
     };
         

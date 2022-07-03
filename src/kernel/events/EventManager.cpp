@@ -10,3 +10,26 @@
 void EventManager::registerEvent(){
     printf("Info - Event added\n");
 }
+
+void EventManager::printActiveEvents(){
+    
+    Node* nodeIterator = head;
+    
+    // if the head isnt empty
+    if(nodeIterator != NULL){
+        printf("The following events are running at %s: \n", getSystemDateTimeNow().c_str());
+        
+        while (nodeIterator != NULL) {
+            //std::cout << nodeIterator->printEventName() << "\n";
+            printf("Event name: %s\n", nodeIterator->event.getEventName().c_str());
+            nodeIterator = nodeIterator->nextNode;
+        }
+        
+        printf("End of current events.");
+        
+    } else{
+        printf("No events registered");
+    }
+    
+    
+}
