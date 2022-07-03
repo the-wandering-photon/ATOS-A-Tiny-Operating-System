@@ -19,6 +19,7 @@ void EventManager::addEvent(std::string input_eventName){
         Event e;
         e.setEventName(input_eventName);
         
+        // create a node at the head of the list
         Node* node = new Node();
         node->event = e;
         node->nextNode = NULL;
@@ -50,9 +51,7 @@ void EventManager::addEvent(std::string input_eventName){
         // Set the link backwards from current node to the last node
         node->prevNode = previousNode;
     }
-    
-    printf("Info - Event added: %s\n", input_eventName.c_str());
-    
+
 }
 
 void EventManager::printActiveEvents(){

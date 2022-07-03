@@ -20,7 +20,7 @@ int boot_entry_point(){
     
     eventManager.addEvent("Event one");
     eventManager.addEvent("Event two");
-    eventManager.addEvent("Event thrreee");
+    eventManager.addEvent("Event three");
     eventManager.addEvent("Event four");
     
     eventManager.printActiveEvents();

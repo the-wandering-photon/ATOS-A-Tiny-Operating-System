@@ -13,7 +13,7 @@
 
 #include "events/EventManager.hpp"
 #include "events/Event.hpp"
-#include "events/KernelEvent.hpp"
+#include "events/EventKernel.hpp"
 
 int boot_entry_point(); // entry point into the program
 
