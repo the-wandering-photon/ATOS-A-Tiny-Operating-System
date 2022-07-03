@@ -15,6 +15,7 @@
 
 // A structure for a traversable double linked list
 struct Node{
+    int id;
     Event event;
     Node* prevNode;
     Node* nextNode;
@@ -30,9 +31,6 @@ public:
     };
     
     void printListItems();
-    
-    void addItem(Event event);
-
 };
 
 

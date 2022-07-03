@@ -7,10 +7,15 @@
 
 #include "Event.hpp"
 
-void Event::setEventName(std::string input_eventName){
+void Event::setEventNameAndId(std::string input_eventName, int input_id){
     eventName = input_eventName;
+    eventId = input_id;
 }
 
 std::string Event::getEventName(){
     return eventName;
+}
+
+int Event::getEventId(){
+    return eventId;
 }

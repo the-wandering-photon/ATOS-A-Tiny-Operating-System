@@ -17,13 +17,14 @@ void EventManager::addEvent(std::string input_eventName){
     // if the head is null, i.e. we are adding the first event to the list then add the event here at the head
     if (linkedList.head == NULL) {
         Event e;
-        e.setEventName(input_eventName);
+        e.setEventNameAndId(input_eventName, eventIdCounter);
         
         // create a node at the head of the list
         Node* node = new Node();
         node->event = e;
         node->nextNode = NULL;
         node->prevNode = NULL;
+        node->id = eventIdCounter;
         
         // Add this node as the head of the list
         linkedList.head = node;
@@ -32,11 +33,12 @@ void EventManager::addEvent(std::string input_eventName){
     // if the head is not null, i.e. there is a list in existance
     else{
         Event e;
-        e.setEventName(input_eventName);
+        e.setEventNameAndId(input_eventName, eventIdCounter);
         
         // create the node basics
         Node* node = new Node();
         node->event = e;
+        node->id = eventIdCounter;
         node->nextNode = NULL;
         
         // Iterate through the list until we reach the last item in the list
@@ -51,10 +53,12 @@ void EventManager::addEvent(std::string input_eventName){
         // Set the link backwards from current node to the last node
         node->prevNode = previousNode;
     }
+    
+    // increment the id counter
+    eventIdCounter++;
 
 }
 
 void EventManager::printActiveEvents(){
     linkedList.printListItems();
-    //std::cout << "Head is not null: " << linkedList.head << "\n";
 }

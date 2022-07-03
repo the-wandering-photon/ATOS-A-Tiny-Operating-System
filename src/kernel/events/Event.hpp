@@ -13,13 +13,13 @@
 class Event {
     
 protected:
-    int id;
+    int eventId;
     std::string eventName;
 
 public:    
-    void setEventName(std::string input_eventName);
+    void setEventNameAndId(std::string input_eventName, int input_id);
     std::string getEventName();
-    
+    int getEventId();
 };
 
 #endif /* Event_hpp */

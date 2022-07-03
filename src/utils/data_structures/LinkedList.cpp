@@ -7,11 +7,6 @@
 
 #include "LinkedList.hpp"
 
-void LinkedList::addItem(Event event){
-    
-    
-    
-}
 
 void LinkedList::printListItems(){
     Node* nodeIterator = head;
@@ -22,7 +17,7 @@ void LinkedList::printListItems(){
         
         while (nodeIterator != NULL) {
             //std::cout << nodeIterator->printEventName() << "\n";
-            printf("Event name: %s\n", nodeIterator->event.getEventName().c_str());
+            printf("Event ID: %d, name: %s\n", nodeIterator->event.getEventId(), nodeIterator->event.getEventName().c_str());
             nodeIterator = nodeIterator->nextNode;
         }
         

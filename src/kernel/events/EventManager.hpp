@@ -30,15 +30,21 @@ public:
         // get the start time of the event manager, which is the first event to take place on the system.
         startTime = getSystemDateTimeNow();
         printf("Info - Event manager stated at: %s\n", startTime.c_str());
+        
+        eventIdCounter = 0;
     };
     
     void addEvent(std::string input_eventName);
     void getEventByEid(int eid);
     void printActiveEvents();
+    void setEventId(int input_id);
+    int getEventId();
+
 
 protected:
     std::string startTime;
     LinkedList linkedList;
+    int eventIdCounter;
     
 };
 
