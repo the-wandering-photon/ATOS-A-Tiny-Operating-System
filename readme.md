@@ -14,7 +14,7 @@ It will run on c++, but I'd like it to be able to execute, or run deamons of oth
 - [x] The Kernel 
 - [ ] Event system:
     - [x] Basic event manager class
-    - [ ] Add id properties for events in the event manager
+    - [x] Add id properties for events in the event manager
     - [ ] Remove an event from the list
     - [ ] Any action which want's to take place on the system must be called as an event and go into the event manager
     - [ ] Any events and their updates will go through the logger class
