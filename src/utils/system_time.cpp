@@ -12,9 +12,9 @@
  *  @return Returns a std::string with the current data time
  */
 const std::string getSystemDateTimeNow() {
-    time_t     timeNow = time(0);
-    struct tm  timeStruct;
-    char       charBuffer[80];
+    time_t timeNow = time(0);
+    struct tm timeStruct;
+    char charBuffer[80];
     timeStruct = *localtime(&timeNow);
     strftime(charBuffer, sizeof(charBuffer), "%X hrs, %d/%m/%Y", &timeStruct);
 
