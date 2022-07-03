@@ -11,14 +11,19 @@ It will run on c++, but I'd like it to be able to execute, or run deamons of oth
 
 ## Core OS features & Roadmap:
 
-- [x] The Kernel 
+- [ ] The Kernel:
+    - [x] Basic implementation
+    - [ ] Error handling
 - [ ] Event system:
     - [x] Basic event manager class
     - [x] Add id properties for events in the event manager
     - [ ] Remove an event from the list
     - [ ] Any action which want's to take place on the system must be called as an event and go into the event manager
     - [ ] Any events and their updates will go through the logger class
-- [ ] Logger
+- [ ] Logger:
+    - [ ] Events
+    - [ ] Errors
+    - [ ] Log in attempts / other security logs
 - [ ] RAM emulation 
 - [ ] Main memory emulation - (thought: how do I save the state of the machine and how is the data ordered?)
 - [ ] Internal communication corridors
