@@ -7,29 +7,55 @@
 
 #include "EventManager.hpp"
 
-void EventManager::registerEvent(){
-    printf("Info - Event added\n");
+
+/**
+ * @brief A method to add an event to the event manager double linked list
+ * @param input_eventName - std::string - The name of the event
+ */
+void EventManager::addEvent(std::string input_eventName){
+        
+    // if the head is null, i.e. we are adding the first event to the list then add the event here at the head
+    if (linkedList.head == NULL) {
+        Event e;
+        e.setEventName(input_eventName);
+        
+        Node* node = new Node();
+        node->event = e;
+        node->nextNode = NULL;
+        node->prevNode = NULL;
+        
+        // Add this node as the head of the list
+        linkedList.head = node;
+    }
+    
+    // if the head is not null, i.e. there is a list in existance
+    else{
+        Event e;
+        e.setEventName(input_eventName);
+        
+        // create the node basics
+        Node* node = new Node();
+        node->event = e;
+        node->nextNode = NULL;
+        
+        // Iterate through the list until we reach the last item in the list
+        Node* previousNode = linkedList.head;
+        
+        while(previousNode->nextNode != NULL){
+            previousNode = previousNode->nextNode;
+        }
+        
+        // Now we have the last node, so add the current node as the next in sequence.
+        previousNode->nextNode = node;
+        // Set the link backwards from current node to the last node
+        node->prevNode = previousNode;
+    }
+    
+    printf("Info - Event added: %s\n", input_eventName.c_str());
+    
 }
 
 void EventManager::printActiveEvents(){
-    
-    Node* nodeIterator = head;
-    
-    // if the head isnt empty
-    if(nodeIterator != NULL){
-        printf("The following events are running at %s: \n", getSystemDateTimeNow().c_str());
-        
-        while (nodeIterator != NULL) {
-            //std::cout << nodeIterator->printEventName() << "\n";
-            printf("Event name: %s\n", nodeIterator->event.getEventName().c_str());
-            nodeIterator = nodeIterator->nextNode;
-        }
-        
-        printf("End of current events.");
-        
-    } else{
-        printf("No events registered");
-    }
-    
-    
+    linkedList.printListItems();
+    //std::cout << "Head is not null: " << linkedList.head << "\n";
 }

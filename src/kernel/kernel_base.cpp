@@ -18,32 +18,10 @@ int boot_entry_point(){
     // Instanciate the event manager, which should be the first object to run
     EventManager eventManager;
     
-    Event e;
-    e.setEventName("Event 1");
-    Event e1;
-    e1.setEventName("Event 2");
-    Event e2;
-    e2.setEventName("Event 3");
-    
-    Node* first = new Node();
-    first->event = e;
-    first->nextNode = NULL;
-    first->prevNode = NULL;
-    
-    // Add this node as the head of the list
-    eventManager.head = first;
-    
-    Node* second = new Node();
-    second->event = e1;
-    second->nextNode = NULL;
-    second->prevNode = first;
-    first->nextNode = second;
-    
-    Node* third = new Node();
-    third->event = e2;
-    third->nextNode = NULL;
-    third->prevNode = second;
-    second->nextNode = third;
+    eventManager.addEvent("Event one");
+    eventManager.addEvent("Event two");
+    eventManager.addEvent("Event thrreee");
+    eventManager.addEvent("Event four");
     
     eventManager.printActiveEvents();
 
