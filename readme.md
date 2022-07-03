@@ -12,7 +12,12 @@ It will run on c++, but I'd like it to be able to execute, or run deamons of oth
 ## Core OS features & Roadmap:
 
 - [x] The Kernel 
-- [ ] Event system
+- [ ] Event system:
+    - [x] Basic event manager class
+    - [ ] Add id properties for events in the event manager
+    - [ ] Remove an event from the list
+    - [ ] Any action which want's to take place on the system must be called as an event and go into the event manager
+    - [ ] Any events and their updates will go through the logger class
 - [ ] Logger
 - [ ] RAM emulation 
 - [ ] Main memory emulation - (thought: how do I save the state of the machine and how is the data ordered?)
@@ -62,6 +67,8 @@ Things to consider:
 - [x] How to prevent somebody posing as the kernel - what checks or fingerprints can I add to validate the kernel that a user wouldn't have access to? How can this be done even if the code was reverse engineered (presuming it is a closed source operating system)
 
 Re point 3 of the above - having thought about it briefly, there doesn't need to be any validation for kernel actions because of the class inheritance of the event manager - kernel actions can only be completed by the kernel manager class. I'll keep this in mind whilst developing. A user can perform a system function through sudo, but a user shouldn't be able to perform a kernel action -> at the moment I don't know what actions will be kernel vs system vs user, so it will be interesting to see how that pans out through development!
+
+I have also implemented a double linked list class (which I will turn more generic soon as at the moment it only accepts Events, so I will use templating for this) which allows the event manager to keep a list of events.
 
 ## Research Log!
 
